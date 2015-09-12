@@ -1,0 +1,23 @@
+[user]
+	name = Alexander Mescheryakov
+	email = sibsfinx@ya.ru
+[push]
+	default = current
+[github]
+	user = sibsfinx
+[core]
+	editor = vim
+	pager = vim -
+	pager = less
+	pager = vim
+	pager = less
+[grep]
+	extendRegexp = true
+	lineNumber = true
+[alias]
+	g = grep --break --heading --line-number
+	semtag = !git tag -a $(semver tag) -m \"tagging $(semver tag)\"
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true

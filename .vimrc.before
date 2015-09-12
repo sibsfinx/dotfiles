@@ -1,0 +1,11 @@
+nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <F2> :.w !pbcopy<CR><CR>
+vmap <F2> :w !pbcopy<CR><CR>
+map <F5> <Plug>GithubOpen<CR>
+map <F6> <Plug>GithubComment<CR>
+nmap <leader>h :%!html2haml --erb 2> /dev/null<CR>:set ft=haml<CR>
+vmap <leader>h :!html2haml --erb 2> /dev/null<CR>
+nmap <F8> <Plug>NERDComComment
+au BufRead,BufNewFile *.hamlc set ft=haml
+

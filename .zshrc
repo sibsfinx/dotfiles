@@ -1,15 +1,13 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+autoload -Uz compinit && compinit
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="kolo"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -32,19 +30,53 @@ ZSH_THEME="kolo"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git websearch autojump rails ruby)
+plugins=(osx git autojump ruby nvm-auto)
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 
-
 # Customize to your needs...
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:$PATH"
+export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl@1.1/lib/"
+
+#export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+export SSL_CERT_FILE=/usr/local/etc/openssl@1.1/cert.pem
+
+export PATH="/usr/local/opt/curl/bin:$PATH"
+# export LDFLAGS="-L/usr/local/opt/curl/lib"
+# export CPPFLAGS="-I/usr/local/opt/curl/include"
+# export PKG_CONFIG_PATH="/usr/local/opt/curl/lib/pkgconfig"
+
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+
 eval "$(rbenv init -)"
 
-#export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:~/bin:/usr/local/bin:/usr/local/mysql/bin:~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export NVM_DIR="/Users/alexander/.nvm"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-export NVM_DIR="/Users/sib/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+plugins+=(zsh-auto-nvm-use)
+
+# If you are not using a framework, or if on starting your shell you get an error message like 'command not found: compinit', then add this line before the ones above.
+
+source ~/.zprofile
+
+eval "$(direnv hook zsh)"
+export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
+export PATH="/usr/local/opt/mozjpeg/bin:$PATH"
+
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home"
+
+export PATH="/Users/alexander/Library/Python/2.7/bin:$PATH"
+
+export PATH="$PATH:/Users/alexander/tizen-studio/tools/ide/bin/"
+
+source ~/.zshtokens
+
+nvm_auto_switch

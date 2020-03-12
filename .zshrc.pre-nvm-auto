@@ -9,6 +9,10 @@ autoload -Uz compinit && compinit
 # time that oh-my-zsh is loaded.
 ZSH_THEME="kolo"
 
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -30,7 +34,7 @@ ZSH_THEME="kolo"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(osx git autojump ruby nvm-auto)
+plugins=(osx git web-search autojump rails ruby)
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 
@@ -55,6 +59,10 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init -)"
 
+#export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:~/bin:/usr/local/bin:/usr/local/mysql/bin:~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
 export NVM_DIR="/Users/alexander/.nvm"
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -64,6 +72,8 @@ plugins+=(zsh-auto-nvm-use)
 # If you are not using a framework, or if on starting your shell you get an error message like 'command not found: compinit', then add this line before the ones above.
 
 source ~/.zprofile
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+#export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
 eval "$(direnv hook zsh)"
 export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
@@ -79,4 +89,3 @@ export PATH="$PATH:/Users/alexander/tizen-studio/tools/ide/bin/"
 
 source ~/.zshtokens
 
-nvm_auto_switch

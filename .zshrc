@@ -32,19 +32,29 @@ ZSH_THEME="kolo"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git websearch autojump rails ruby)
+plugins=(osx git websearch autojump rails ruby)
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 
-
 # Customize to your needs...
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:$PATH"
+export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl/lib/"
+
 eval "$(rbenv init -)"
 
 #export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:~/bin:/usr/local/bin:/usr/local/mysql/bin:~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+export NVM_DIR="/Users/Alexander/.nvm"
 
-export NVM_DIR="/Users/sib/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+source ~/.zprofile
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+#export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+
+
+eval "$(direnv hook zsh)"
+export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
+export PATH="/usr/local/opt/mozjpeg/bin:$PATH"

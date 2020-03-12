@@ -4,6 +4,18 @@ alias iq300bg='open https://github.com/IQ300Ltd/iq300/network'
 alias iq300fr='cd $CODEPATH/iq300-frontend'
 alias iq300br='cd $CODEPATH/iq300'
 
-export SKETCHPLUGINS='/Users/sib/Library/Containers/com.bohemiancoding.sketch3/Data/Library/Application Support/com.bohemiancoding.sketch3/Plugins/'
+alias pscrum='open https://trello.com/b/uobuUR5c/'
+alias ptravel='open https://trello.com/b/MRR9c0BY/'
+alias ptrello='open https://trello.com/'
+alias ym='open https://mail.yandex.ru/'
+alias ymc='open "https://mail.yandex.ru/?login=sibsfinx#compose"'
+
+export SKETCHPLUGINS='/Users/Alexander/Library/Containers/com.bohemiancoding.sketch3/Data/Library/Application Support/com.bohemiancoding.sketch3/Plugins/'
 alias sketchplugins='cd $SKETCHPLUGINS'
+
+export FONTSPATH='~/Documents/install/fonts/'
+
+currency_convert() {
+    curl -s "http://www.google.com/finance/converter?a=$1&from=$2&to=$3" | sed '/res/!d;s/<[^>]*>//g';
+}
 

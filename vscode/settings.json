@@ -1,0 +1,12 @@
+{
+    "editor.fontSize": 13,
+    "scm.inputFontSize": 14,
+    "debug.console.fontSize": 14,
+    "terminal.integrated.fontSize": 14,
+    "editor.wordWrap": "on",
+    "workbench.iconTheme": "vscode-icons",
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingDelete": "never",
+    "editor.autoClosingOvertype": "never",
+    "editor.autoSurround": "never"
+}

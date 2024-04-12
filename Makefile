@@ -9,7 +9,7 @@ run-all:
 	source ~/.zprofile
 
 dev:
-	./dependencies/dev.sh
+	./install/dev.sh
 
 brew:
-	./dependencies/homebrew.sh
+	./install/homebrew.sh

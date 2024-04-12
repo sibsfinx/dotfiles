@@ -1,14 +1,10 @@
 #!/bin/bash
 brew update
-brew install git git-lfs
-brew install wget curl
+brew install git git-lfs wget curl
 brew install zsh the_silver_searcher fzf tmux direnv
 brew install rbenv && rbenv init
-brew install docker ansible
+brew install docker ansible coreutils gh
 brew install postgres mysql sqlite
-
-brew tap codeclimate/formulae
-brew install codeclimate
 
 brew install --cask visual-studio-code around google-chat figma tunnelblick krisp
 brew install --cask google-chrome firefox telegram spotify
@@ -21,6 +17,9 @@ brew install browserstacklocal ngrok
 brew install imageoptim unrar
 #	graphviz 
 # 	aria2
+
+# brew tap codeclimate/formulae
+# brew install codeclimate
 
 # brew install mycli golang vagrant composer
 # brew install overmind hivemind

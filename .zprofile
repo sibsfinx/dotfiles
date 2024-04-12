@@ -11,6 +11,8 @@ alias grpw='grep -rw'
 alias fnd='find . -iname'
 alias ghh='/usr/local/bin/gh'
 
+alias ntd='notify -s Glass -m "done" -c 2 -x'
+
 alias vzp='vim ~/.zprofile'
 alias vzps='source ~/.zshrc'
 

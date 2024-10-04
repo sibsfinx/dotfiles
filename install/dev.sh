@@ -34,7 +34,7 @@ darwin*)
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" </dev/null
 	brew install jesseduffield/lazygit/lazygit
 
-	yes | brew upgrade asdf neovim git the_silver_searcher fzf bat htop fd ncdu tldr httpie git-delta ripgrep gnu-sed
+	yes | brew upgrade asdf pyenv neovim git the_silver_searcher fzf bat htop fd ncdu tldr httpie git-delta ripgrep gnu-sed
 	yes | brew upgrade pandoc actionlint shellcheck checkmake lazygit
 	;;
 *)
@@ -54,6 +54,12 @@ NODE_VERSION=20.12.2
 nvm install $NODE_VERSION
 nvm alias default $NODE_VERSION
 nvm use
+
+PYTHON_VERSION=2.7.18
+echo 'PATH=$(pyenv root)/shims:$PATH' >> ~/.zshrc
+pyenv install $PYTHON_VERSION
+pyenv shell $PYTHON_VERSION
+pyenv global $PYTHON_VERSION
 
 echo "dev.sh done"
 

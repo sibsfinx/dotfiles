@@ -14,7 +14,7 @@ Config: [`.vimrc`](.vimrc). Install: `make vim`. Plugins: vim-plug (`:PlugInstal
 | `,u` / `,l` | UPPER / lower-case the word under the cursor |
 | `,y` / `,p` | Copy the line or selection to `~/.vbuf` / paste it (works across Vim instances) |
 | `,hl` | Toggle search highlighting |
-| `,h` | Convert html to haml (needs `html2haml`) |
+| `,e` | Expand an emmet abbreviation (`ul>li.item*3` → markup) in html/jsx/tsx/vue/svelte. In insert mode: `Ctrl-y ,` |
 | `,b` `,B` | Buffergator: open the buffer list / close it |
 | `,to` `,tc` | Buffergator tab list: open / close |
 
@@ -48,7 +48,8 @@ Config: [`.vimrc`](.vimrc). Install: `make vim`. Plugins: vim-plug (`:PlugInstal
   - bundler: `:Bundle`.
 - **Undo:** undotree (`F5`).
 - **Look:** airline statusline (it shows mode, branch and `[N]trailing`), jellybeans colors.
-- **Languages:** vim-polyglot (syntax and indent for about 100 languages), editorconfig, sleuth (detects indent style), sensible defaults.
+- **Languages:** vim-polyglot (syntax and indent for about 100 languages, including TS/TSX, MDX, YAML and TOML), emmet for markup in JSX/TSX/HTML, editorconfig, sleuth (detects indent style), sensible defaults.
+- **Formats:** TS/JS/JSON/YAML/Markdown/HTML/CSS use 2-space indent. Markdown and MDX get soft wrap and spell check, and frontmatter is highlighted (SKILL.md, docs).
 
 ## Defaults worth knowing
 - Line numbers and cursorline are on. Wrap is off.

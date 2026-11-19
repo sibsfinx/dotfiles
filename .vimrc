@@ -20,6 +20,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-endwise'
 Plug 'godlygeek/tabular'
+Plug 'mattn/emmet-vim'
 Plug 'ervandew/supertab'
 Plug 'editorconfig/editorconfig-vim'
 
@@ -38,8 +39,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'vim-airline/vim-airline'
 Plug 'nanotech/jellybeans.vim'
 
-" languages: polyglot covers js/jsx/json/markdown/haml/slim/ruby/go/rust/
-" yaml/csv/docker/coffee/... that were separate plugins before
+" languages: polyglot covers ts/tsx/js/jsx/json/markdown/mdx/yaml/toml/ruby/go/rust/
+" sh/docker/terraform/... that were separate plugins before
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
@@ -104,15 +105,23 @@ set viminfo+=r/tmp,r/private/tmp,r/var/folders,r/private/var/folders
 augroup sibsfinx_filetypes
   autocmd!
   " treat foo-bar as one word in web files
-  autocmd FileType css,sass,scss,less,stylus,html,haml,slim,eruby,coffee,javascript,javascriptreact,hbs setlocal iskeyword+=-
+  autocmd FileType css,scss,less,html,javascriptreact,typescriptreact,vue,svelte,astro,markdown.mdx setlocal iskeyword+=-
+  " 2-space indent for the web/config formats you use
+  autocmd FileType javascript,javascriptreact,typescript,typescriptreact,json,jsonc,yaml,markdown,markdown.mdx,html,css,scss,vue,svelte,astro setlocal shiftwidth=2 tabstop=2
+  autocmd BufRead,BufNewFile *.mdx set filetype=markdown.mdx
+  " Markdown: wrap prose, spell-check
+  autocmd FileType markdown,markdown.mdx setlocal wrap linebreak spell spelllang=en_us
   autocmd BufRead,BufNewFile {Vagrantfile,Gemfile,Capfile} set filetype=ruby
-  autocmd BufRead,BufNewFile *.hamlc set filetype=haml
   " strip trailing whitespace on save
   autocmd BufWritePre * :%s/\s\+$//e
 augroup END
 
 let g:vim_json_syntax_conceal = 0
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
+let g:user_emmet_install_global = 0
+let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}, 'typescript': {'extends': 'tsx'}}
+autocmd FileType html,css,scss,javascriptreact,typescriptreact,vue,svelte,astro EmmetInstall
 let g:buffergator_viewport_split_policy = "B"
 let g:buffergator_sort_regime = "mru"
 let NERDTreeIgnore = ['\.pyc$']
@@ -153,9 +162,9 @@ nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 " ,u / ,l  upper / lower-case the word under cursor
 nmap <leader>u mQviwU`Q
 nmap <leader>l mQviwu`Q
-" ,h  html -> haml (needs html2haml)
-nmap <leader>h :%!html2haml --erb 2> /dev/null<CR>:set ft=haml<CR>
-vmap <leader>h :!html2haml --erb 2> /dev/null<CR>
+" ,e  expand an emmet abbreviation (div.card>ul>li*3) in html/jsx/tsx/vue/svelte
+"     (in insert mode use emmet's default Ctrl-y ,)
+nmap <leader>e <plug>(emmet-expand-abbr)
 
 " NERDTree: ,, toggle, Ctrl-\ reveal current file
 nmap <silent> <leader><leader> :NERDTreeToggle<CR>

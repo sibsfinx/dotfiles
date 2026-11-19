@@ -55,7 +55,7 @@ Config: [`.vimrc`](.vimrc). Install: `make vim`. Plugins: vim-plug (`:PlugInstal
 - 4-space tabs, unless sleuth or editorconfig detect something else.
 - Search is case-insensitive unless you type a capital letter.
 - Trailing whitespace is stripped on every save.
-- No swap or backup files. Persistent undo is on.
+- No swap or backup files. Persistent undo is on, except for temp files (`/tmp`, `$TMPDIR`). That way `sops file.yaml` and `git commit` never leave decrypted text in `~/.vim/undo`.
 - The mouse is on, and the system clipboard is used when Vim is built with `+clipboard`.
 
 ## Workflows

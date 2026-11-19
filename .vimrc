@@ -92,6 +92,15 @@ if has('persistent_undo')
   set undofile
 endif
 
+" never persist undo history or marks for temp files: `sops file.yaml`,
+" `git commit` and friends open decrypted/secret content in $TMPDIR
+augroup sibsfinx_tmpfiles
+  autocmd!
+  autocmd BufReadPre,BufNewFile /tmp/*,/private/tmp/*,/var/folders/*,/private/var/folders/*,*.dec.*,*.decrypted.*
+        \ setlocal noundofile | setlocal nobackup | setlocal nowritebackup
+augroup END
+set viminfo+=r/tmp,r/private/tmp,r/var/folders,r/private/var/folders
+
 augroup sibsfinx_filetypes
   autocmd!
   " treat foo-bar as one word in web files

@@ -1,4 +1,4 @@
-.PHONY: run-all dev brew
+.PHONY: run-all dev brew vim
 
 .DEFAULT_GOAL := run-all
 
@@ -13,3 +13,6 @@ dev:
 
 brew:
 	./install/homebrew.sh
+
+vim:
+	./install/vim.sh

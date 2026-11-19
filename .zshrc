@@ -133,7 +133,6 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/libffi/lib/pkgconfig"
 export RUBY_CONFIGURE_OPTS=openssl@1.0
 
 
-echo 'export PATH="/opt/homebrew/opt/pyside@2/bin:$PATH"' >> ~/.zshrc
 
 export LDFLAGS="-L/opt/homebrew/opt/pyside@2/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/pyside@2/include"
@@ -207,12 +206,10 @@ auto-switch-node-version() {
 autoload -U add-zsh-hook
 add-zsh-hook chpwd auto-switch-node-version
 auto-switch-node-version
-export PATH="/opt/homebrew/opt/pyside@2/bin:$PATH"
 # pnpm
-export PNPM_HOME="/Users/alexander/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm endexport PATH="/opt/homebrew/opt/pyside@2/bin:$PATH"
-export PATH="/opt/homebrew/opt/pyside@2/bin:$PATH"
+# pnpm end

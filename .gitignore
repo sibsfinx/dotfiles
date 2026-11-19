@@ -3,3 +3,12 @@
 .DS_Store
 cache
 .oh-my-zsh/cache
+
+# local editor state / machine-specific, never commit
+.viminfo
+.netrwhist
+.vscode/argv.json
+# secrets
+.zshtokens
+.env
+.env.*

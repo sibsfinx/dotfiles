@@ -12,3 +12,6 @@ cache
 .zshtokens
 .env
 .env.*
+
+# nvim runtime state
+nvim/lazyvim.json
